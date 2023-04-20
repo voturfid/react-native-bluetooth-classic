@@ -1,3 +1,5 @@
+# Info
+Repository forked from [kenjdavidson](https://github.com/kenjdavidson/react-native-bluetooth-classic)
 
 # react-native-bluetooth-classic
 
@@ -22,7 +24,7 @@ If this breaks in a newer version of React Native, Android or IOS please open an
 ### Install from NPM
 
 ```
-$ npm install react-native-bluetooth-classic --save
+$ npm install @voturfid/react-native-bluetooth-classic --save
 ```
 
 React Native 0.60.0 [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md).
