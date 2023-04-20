@@ -6,8 +6,7 @@ import android.bluetooth.BluetoothSocket;
 
 import java.io.IOException;
 import java.util.Properties;
-
-import kjd.reactnative.bluetooth.BluetoothUUID;
+import java.util.UUID;
 
 public class RfcommAcceptorThreadImpl extends ConnectionAcceptor {
 
@@ -15,6 +14,7 @@ public class RfcommAcceptorThreadImpl extends ConnectionAcceptor {
     private boolean mSecure;
     private boolean mCancelled;
     private int mNumAccept;
+    private String mRfcomm;
     private BluetoothServerSocket mSocket;
 
     /**
@@ -33,15 +33,16 @@ public class RfcommAcceptorThreadImpl extends ConnectionAcceptor {
         this.mCancelled = false;
         this.mSecure = StandardOption.SECURE_SOCKET.get(properties);
         this.mServiceName = StandardOption.SERVICE_NAME.get(properties);
+        this.mRfcomm = StandardOption.RFCOMM.get(properties);
         this.mNumAccept = 1;
 
         BluetoothServerSocket tmp = null;
         if (mSecure) {
             tmp = mAdapter.listenUsingRfcommWithServiceRecord(mServiceName,
-                    BluetoothUUID.SPP.uuid);
+                    UUID.fromString(mRfcomm));
         } else {
             tmp = mAdapter.listenUsingInsecureRfcommWithServiceRecord(mServiceName,
-                    BluetoothUUID.SPP.uuid);
+                    UUID.fromString(mRfcomm));
         }
 
         mSocket = tmp;

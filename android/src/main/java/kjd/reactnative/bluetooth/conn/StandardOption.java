@@ -95,7 +95,9 @@ public enum StandardOption {
      * this requires a bit of addition to make it worth while, like notifying of a connected device
      * upon each accept.   It needs more testing and work so it's just here for reference.
      */
-    ACCEPT_CONNECTION_NUM("acceptConnectionNumber", Integer.class, 1);
+    ACCEPT_CONNECTION_NUM("acceptConnectionNumber", Integer.class, 1),
+
+    RFCOMM("rfcomm", String.class, "00001101-0000-1000-8000-00805F9B34FB");
 
     private String code;
     private Class clazz;
