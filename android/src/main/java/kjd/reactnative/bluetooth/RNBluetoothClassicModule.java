@@ -230,6 +230,10 @@ public class RNBluetoothClassicModule
         return MODULE_NAME;
     }
 
+    @Override
+    public boolean hasConstants() {
+        return true;
+    }
 
     /**
      * Previously this returned the Bluetooth events and common character sets that were available
@@ -269,7 +273,7 @@ public class RNBluetoothClassicModule
      * @param data        the intent which triggered this result
      */
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         if (BuildConfig.DEBUG)
             Log.d(TAG, String.format("onActivityResult requestCode: %d resultCode: %d", requestCode, resultCode));
 
@@ -295,6 +299,11 @@ public class RNBluetoothClassicModule
         }
     }
 
+    @Override
+    public void onNewIntent(Intent intent) {
+        if (BuildConfig.DEBUG)
+            Log.d(TAG, "onNewIntent: " + intent.getAction());
+    }
 
     //endregion
 
