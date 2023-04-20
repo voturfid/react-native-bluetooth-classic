@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import kjd.reactnative.bluetooth.Mappable;
+import kjd.reactnative.bluetooth.Utilities;
 
 /**
  * Provides wrapping of {@link android.bluetooth.BluetoothDevice} details and communication.
@@ -75,7 +76,7 @@ public class NativeDevice implements Mappable {
             mapped.putMap("deviceClass", deviceClass);
         }
 
-        mapped.putMap("extra", Arguments.makeNativeMap(mExtra));
+        mapped.putMap("extra", Utilities.makeNativeMap(mExtra));
 
         return mapped;
     }

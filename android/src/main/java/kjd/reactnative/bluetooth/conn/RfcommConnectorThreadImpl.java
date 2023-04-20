@@ -6,12 +6,12 @@ import android.bluetooth.BluetoothSocket;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Properties;
-
-import kjd.reactnative.bluetooth.BluetoothUUID;
+import java.util.UUID;
 
 public class RfcommConnectorThreadImpl extends ConnectionConnector {
 
     private boolean mSecure;
+    private String mRfcomm;
     private boolean mCancelled;
     private BluetoothSocket mSocket;
 
@@ -22,13 +22,14 @@ public class RfcommConnectorThreadImpl extends ConnectionConnector {
 
         this.mCancelled = false;
         this.mSecure = StandardOption.SECURE_SOCKET.get(properties);
+        this.mRfcomm = StandardOption.RFCOMM.get(properties);
 
         BluetoothSocket tmp = null;
 
         if (this.mSecure) {
-            tmp = device.createRfcommSocketToServiceRecord(BluetoothUUID.SPP.uuid);
+            tmp = device.createRfcommSocketToServiceRecord(UUID.fromString(mRfcomm));
         } else {
-            tmp = device.createInsecureRfcommSocketToServiceRecord(BluetoothUUID.SPP.uuid);
+            tmp = device.createInsecureRfcommSocketToServiceRecord(UUID.fromString(mRfcomm));
         }
 
         mSocket = tmp;

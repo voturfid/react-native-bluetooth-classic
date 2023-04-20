@@ -49,12 +49,12 @@ import kjd.reactnative.bluetooth.conn.ConnectionAcceptorFactory;
 import kjd.reactnative.bluetooth.conn.ConnectionConnector;
 import kjd.reactnative.bluetooth.conn.ConnectionConnectorFactory;
 import kjd.reactnative.bluetooth.conn.ConnectionFailedException;
-import kjd.reactnative.bluetooth.conn.StandardOption;
-import kjd.reactnative.bluetooth.event.BluetoothStateEvent;
-import kjd.reactnative.bluetooth.event.EventType;
 import kjd.reactnative.bluetooth.conn.DeviceConnection;
 import kjd.reactnative.bluetooth.conn.DeviceConnectionFactory;
+import kjd.reactnative.bluetooth.conn.StandardOption;
 import kjd.reactnative.bluetooth.device.NativeDevice;
+import kjd.reactnative.bluetooth.event.BluetoothStateEvent;
+import kjd.reactnative.bluetooth.event.EventType;
 import kjd.reactnative.bluetooth.receiver.ActionACLReceiver;
 import kjd.reactnative.bluetooth.receiver.DiscoveryReceiver;
 import kjd.reactnative.bluetooth.receiver.PairingReceiver;
@@ -230,10 +230,6 @@ public class RNBluetoothClassicModule
         return MODULE_NAME;
     }
 
-    @Override
-    public boolean hasConstants() {
-        return true;
-    }
 
     /**
      * Previously this returned the Bluetooth events and common character sets that were available
@@ -261,19 +257,19 @@ public class RNBluetoothClassicModule
      * Handles results from the requested Android Intents.  Currently there are only two activities
      * started for result:
      * <ul>
+
      * <li><strong>ENABLE_BLUETOOTH</strong> requests the user to enable Bluetooth from settings.</li>
      * <li><strong>PAIR_DEVICE</strong> after a user has completed pairing the device.</li>
      * </ul>
      * This sends a {@link EventType#BLUETOOTH_ENABLED} event.  It probably shouldn't duplicate
      * the promise but this gives the opportunity to do both things.
      *
-     * @param activity    the activity which is returning the result
      * @param requestCode request code provided to the outgoing intent
      * @param resultCode  result of the requested Intent
      * @param data        the intent which triggered this result
      */
     @Override
-    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (BuildConfig.DEBUG)
             Log.d(TAG, String.format("onActivityResult requestCode: %d resultCode: %d", requestCode, resultCode));
 
@@ -300,11 +296,6 @@ public class RNBluetoothClassicModule
     }
 
 
-    @Override
-    public void onNewIntent(Intent intent) {
-        if (BuildConfig.DEBUG)
-            Log.d(TAG, "onNewIntent: " + intent.getAction());
-    }
     //endregion
 
     //region: LifecycleEventListener
@@ -1303,5 +1294,4 @@ public class RNBluetoothClassicModule
             Log.e(TAG, "There is currently no active Catalyst instance");
         }
     }
-
 }
