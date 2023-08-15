@@ -107,7 +107,7 @@ export default class BluetoothDevice implements BluetoothNativeDevice {
   async read(): Promise<String> {
     return this._bluetoothModule.readFromDevice(this.address);
   }
-  
+
   /**
    * Clear the current device buffer - this will generally only be required when using
    * manual reads (as `onRead` should continually keep the buffer clean).

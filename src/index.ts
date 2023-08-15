@@ -1,21 +1,28 @@
-import { NativeModules } from "react-native";
-import BluetoothDevice from "./BluetoothDevice";
-import BluetoothError from "./BluetoothError";
-import {
-  BluetoothEvent,
+// Bluetooth Classic
+import RNBluetoothClassic, {
+  BluetoothDevice,
   BluetoothDeviceEvent,
+  BluetoothError,
   BluetoothDeviceReadEvent,
+  BluetoothEvent,
   BluetoothEventListener,
   BluetoothEventSubscription,
   BluetoothEventType,
-} from "./BluetoothEvent";
-import BluetoothModule from "./BluetoothModule";
-import BluetoothNativeDevice from "./BluetoothNativeDevice";
-import BluetoothNativeModule, {
+  BluetoothNativeDevice,
   StandardOptions,
-} from "./BluetoothNativeModule";
+  BluetoothNativeModule
+} from './bluetooth/device/index';
 
-export default new BluetoothModule(NativeModules.RNBluetoothClassic);
+// Implementations
+import { BluetoothVotuProvider } from './hooks/index';
+import { useBluetoothClassic } from './hooks/deviceInteraction/bluetoothClassic';
+import { useControlTags } from './hooks/deviceInteraction/controlTags';
+import { getBatteryIcon } from './utils/getBatteryIcon';
+import { getDeviceImage } from './utils/getDeviceImage';
+import { IEpcProps } from './bluetooth/index';
+
+// Exports Bluetooth Classic
+export default RNBluetoothClassic;
 
 export {
   BluetoothDevice,
@@ -29,4 +36,14 @@ export {
   BluetoothNativeDevice,
   BluetoothNativeModule,
   StandardOptions,
+};
+
+// Exports Implementations
+export {
+  BluetoothVotuProvider,
+  useBluetoothClassic,
+  useControlTags,
+  getBatteryIcon,
+  getDeviceImage,
+  IEpcProps
 };

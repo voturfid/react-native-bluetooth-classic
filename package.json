@@ -44,10 +44,12 @@
   },
   "homepage": "https://github.com/kenjdavidson/react-native-bluetooth-classic",
   "peerDependencies": {
+    "lodash": "^4.17.21",
     "react-native": ">=0.60.0"
   },
   "dependencies": {
-    "buffer": "^5.4.3"
+    "buffer": "^5.4.3",
+    "lodash": "^4.17.21"
   },
   "files": [
     "lib",
@@ -60,11 +62,13 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.0",
     "@types/react-native": "^0.63.35",
+    "@types/lodash": "^4.14.197",
     "jest": "^26.6.1",
     "jest-ts-auto-mock": "^1.0.11",
+    "lodash": "^4.17.21",
     "npm-version": "^1.1.0",
     "react": "^16.8.6",
-    "react-native": "^0.60.0",
+    "react-native": "^0.72.4",
     "ts-auto-mock": "^2.6.5",
     "ts-jest": "^26.4.3",
     "ttypescript": "^1.5.12",
