@@ -303,7 +303,7 @@ public class RNBluetoothClassicModule
      * @param data        the intent which triggered this result
      */
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         if (BuildConfig.DEBUG)
             Log.d(TAG, String.format("onActivityResult requestCode: %d resultCode: %d", requestCode, resultCode));
 
@@ -333,6 +333,42 @@ public class RNBluetoothClassicModule
     public void onNewIntent(Intent intent) {
         if (BuildConfig.DEBUG)
             Log.d(TAG, "onNewIntent: " + intent.getAction());
+    }
+
+    @Override
+    public void onActivity(Activity activity) {
+        // This method might be expected by older React Native versions or specific build environments.
+        // No-op implementation to satisfy potential interface requirements.
+    }
+
+    @Override
+    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+        // No-op
+    }
+
+    @Override
+    public void onActivityStarted(Activity activity) {
+        // No-op
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+        // No-op
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+        // No-op
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+        // No-op
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+        // No-op
     }
 
     // endregion
