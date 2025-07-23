@@ -303,7 +303,7 @@ public class RNBluetoothClassicModule
      * @param data        the intent which triggered this result
      */
     @Override
-    public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (BuildConfig.DEBUG)
             Log.d(TAG, String.format("onActivityResult requestCode: %d resultCode: %d", requestCode, resultCode));
 
