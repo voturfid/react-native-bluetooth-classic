@@ -1342,7 +1342,6 @@ public class RNBluetoothClassicModule
      *
      * @param device the {@link NativeDevice} which was just disconnected
      */
-    @Override
     public void onACLDisconnected(NativeDevice device) {
         Log.d(TAG, "onACLDisconnected to " + device.getAddress());
 
