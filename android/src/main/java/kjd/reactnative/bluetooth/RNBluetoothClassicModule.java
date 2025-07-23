@@ -335,42 +335,6 @@ public class RNBluetoothClassicModule
             Log.d(TAG, "onNewIntent: " + intent.getAction());
     }
 
-    @Override
-    public void onActivity(Activity activity) {
-        // This method might be expected by older React Native versions or specific build environments.
-        // No-op implementation to satisfy potential interface requirements.
-    }
-
-    @Override
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        // No-op
-    }
-
-    @Override
-    public void onActivityStarted(Activity activity) {
-        // No-op
-    }
-
-    @Override
-    public void onActivityResumed(Activity activity) {
-        // No-op
-    }
-
-    @Override
-    public void onActivityPaused(Activity activity) {
-        // No-op
-    }
-
-    @Override
-    public void onActivityStopped(Activity activity) {
-        // No-op
-    }
-
-    @Override
-    public void onActivityDestroyed(Activity activity) {
-        // No-op
-    }
-
     // endregion
 
     // region: LifecycleEventListener
