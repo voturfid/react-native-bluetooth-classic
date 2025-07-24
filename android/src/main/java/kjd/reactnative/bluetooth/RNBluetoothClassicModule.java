@@ -270,7 +270,6 @@ public class RNBluetoothClassicModule
      *
      */
     @Nullable
-    @Override
     public Map<String, Object> getConstants() {
         return Collections.emptyMap();
     }
